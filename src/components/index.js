@@ -1,2 +1,4 @@
 export { default as App } from './App';
-export { default as Header } from './Header';
+export { default as PublicRoute } from './PublicRoute';
+export { default as PrivateRoute } from './PrivateRouter';
+export { default as Navigator } from './Navigator';

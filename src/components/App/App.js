@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
-import { Router } from 'react-router-dom';
+import { Router, Switch } from 'react-router-dom';
 import configureStore from 'store/store';
 import { history } from 'utils';
 import { Provider } from 'react-redux';
-import { Header } from 'components';
+import { PublicRoute, PrivateRoute, Navigator } from 'components';
+import { Login } from 'pages';
+import endpoints from 'services/endpoints';
 
 const store = configureStore();
 
@@ -13,7 +15,10 @@ function App() {
             <Provider store={store}>
                 <Fragment>
                     <Router history={history}>
-                        <Header />
+                        <Switch>
+                            <PublicRoute path={endpoints.login} component={Login} />
+                            <PrivateRoute to={endpoints.root} component={Navigator} />
+                        </Switch>
                     </Router>
                 </Fragment>
             </Provider>
