@@ -1,26 +1,16 @@
 import createSagaMiddleware from 'redux-saga';
-
-import { createStore, applyMiddleware, compose } from 'redux';
-
-// import loaderVisibility from '../middlewears/loaderVisibility';
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import rootSaga from 'sagas';
 import rootReducer from './reducers/rootReducer';
 
 const sagaMiddleware = createSagaMiddleware();
-const middlewares = [
-    sagaMiddleware,
-    // loaderVisibility
-];
+const middlewares = [sagaMiddleware];
+let enhancer = applyMiddleware(...middlewares);
 
-/* eslint-disable no-underscore-dangle */
-const composeEnhancers =
-    typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-        ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-              // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
-          })
-        : compose;
-/* eslint-enable */
-const enhancer = composeEnhancers(applyMiddleware(...middlewares));
+if (process.env.NODE_ENV === 'development') {
+    enhancer = composeWithDevTools({})(applyMiddleware(...middlewares));
+}
 
 const store = (initialState = {}) => {
     const storeIn = createStore(rootReducer, initialState, enhancer);

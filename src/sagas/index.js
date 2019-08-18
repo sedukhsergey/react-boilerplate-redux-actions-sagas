@@ -1,6 +1,6 @@
 import { all } from 'redux-saga/effects';
 
-import { watchUsers } from './user';
+import { watchUsers } from 'sagas/user';
 
 export default function* rootSaga() {
     yield all([
