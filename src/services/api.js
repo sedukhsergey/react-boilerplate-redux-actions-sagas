@@ -2,7 +2,7 @@ import apisauce from 'apisauce';
 
 export const api = apisauce.create({
     // base URL is read from the "constructor"
-    baseURL: 'https://randomuser.me/api/',
+    baseURL: process.env.REACT_APP_API_BASE_URL,
     // here are some default headers
     headers: {
         'Cache-Control': 'no-cache',
