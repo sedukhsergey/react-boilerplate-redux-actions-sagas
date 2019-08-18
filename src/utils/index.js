@@ -1,11 +1,7 @@
-// import localStorage from 'services/util/localStorage';
+export { default as history } from './history';
 
-import history from './history';
-
-// function logOut() {
-//     localStorage.removeItem('authToken');
-//     localStorage.removeItem('role');
-//     window.location.reload();
-// }
-
-export { history };
+export function logOut() {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('role');
+    window.location.reload();
+}
