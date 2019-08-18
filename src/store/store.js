@@ -4,7 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 
 // import loaderVisibility from '../middlewears/loaderVisibility';
 import rootSaga from 'sagas';
-import rootReducer from './reducers';
+import rootReducer from './reducers/rootReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 const middlewares = [

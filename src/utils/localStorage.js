@@ -24,6 +24,7 @@ class LocalStorage {
             return { done: false, message: 'Error', error };
         }
     }
+
     static clearStorage() {
         try {
             localStorage.clear();

@@ -12,9 +12,7 @@ const Navigator = ({ history }) => {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    return (
-        null
-    )
+    return null;
 };
 
 Navigator.propTypes = {
