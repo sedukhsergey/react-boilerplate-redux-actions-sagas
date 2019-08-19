@@ -1,6 +1,5 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-
 import endpoints from 'services/endpoints';
 import { localStorage } from 'utils';
 

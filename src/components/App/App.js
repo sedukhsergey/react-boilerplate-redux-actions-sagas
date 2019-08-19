@@ -4,7 +4,7 @@ import configureStore from 'store/store';
 import { history } from 'utils';
 import { Provider } from 'react-redux';
 import { PublicRoute, PrivateRoute, Navigator } from 'components';
-import { Login } from 'pages';
+import { LoginContainer } from 'containers';
 import endpoints from 'services/endpoints';
 
 const store = configureStore();
@@ -16,7 +16,7 @@ function App() {
                 <Fragment>
                     <Router history={history}>
                         <Switch>
-                            <PublicRoute path={endpoints.login} component={Login} />
+                            <PublicRoute path={endpoints.login} component={LoginContainer} />
                             <PrivateRoute to={endpoints.root} component={Navigator} />
                         </Switch>
                     </Router>
